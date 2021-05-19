@@ -7,11 +7,14 @@ namespace VariablesDemo
     {
         static void Main(string[] args)
         {
-            static void Start()
+            string line;
+            byte languageValue;
+
+            void Start()
             {
                 Write("About which language do you want to know information? 1 - English, 2 - Spanish, 3 - Ukrainian ");
-                string line = ReadLine();
-                byte languageValue;
+                line = ReadLine();
+                
                 if (!byte.TryParse(line, out languageValue) || languageValue > 3 || languageValue < 1)
                 {
                     WriteLine("Please follow the instructions and try again");
@@ -19,14 +22,7 @@ namespace VariablesDemo
                 }
             }
 
-            Write("About which language do you want to know information? 1 - English, 2 - Spanish, 3 - Ukrainian ");
-            string line = ReadLine();
-            byte languageValue;
-            if (!byte.TryParse(line, out languageValue) || languageValue > 3 || languageValue < 1)
-            {
-                WriteLine("Please follow the instructions and try again");
-                Start();
-            }
+            Start();
             if (languageValue <= 3 && languageValue >= 1)
             {
                 WriteLine($"With 2,500 to 3,000 words, you can understand 90% of everyday {(Language)languageValue} conversations,");
