@@ -7,12 +7,25 @@ namespace VariablesDemo
     {
         static void Main(string[] args)
         {
+            static void Start()
+            {
+                Write("About which language do you want to know information? 1 - English, 2 - Spanish, 3 - Ukrainian ");
+                string line = ReadLine();
+                byte languageValue;
+                if (!byte.TryParse(line, out languageValue) || languageValue > 3 || languageValue < 1)
+                {
+                    WriteLine("Please follow the instructions and try again");
+                    Start();
+                }
+            }
+
             Write("About which language do you want to know information? 1 - English, 2 - Spanish, 3 - Ukrainian ");
             string line = ReadLine();
             byte languageValue;
             if (!byte.TryParse(line, out languageValue) || languageValue > 3 || languageValue < 1)
             {
                 WriteLine("Please follow the instructions and try again");
+                Start();
             }
             if (languageValue <= 3 && languageValue >= 1)
             {
